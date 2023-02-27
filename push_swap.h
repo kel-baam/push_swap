@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 12:25:42 by kel-baam          #+#    #+#             */
+/*   Updated: 2023/02/27 12:25:45 by kel-baam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # ifndef BUFFER_SIZE
@@ -29,10 +40,10 @@ typedef struct s_data
 }					t_data;
 typedef struct s_info
 {
-	int op_count;
-	int up;
-	int is_empty;
-} t_info;
+	int				op_count;
+	int				up;
+	int				is_empty;
+}					t_info;
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s1);
 int					ft_index_newline(char *buff);
@@ -52,17 +63,17 @@ void				print_error(void);
 void				check_data(char **args);
 t_list				*init_stack_a(char **args);
 int					is_sort(t_list *stack);
-void				sa(t_list *stack_a);
-void				sb(t_list *stack_b);
-void				ss(t_list *stack_a, t_list *stack_b);
-void				pa(t_list **stack_a, t_list **stack_b);
-void				pb(t_list **stack_a, t_list **stack_b);
-void				ra(t_list *stack_a);
-void				rb(t_list *stack_b);
-void				rr(t_list *stack_a, t_list *stack_b);
-void				rra(t_list *stack_a);
-void				rrb(t_list *stack_b);
-void				rrr(t_list *stack_a, t_list *stack_b);
+void				sa(t_list *stack_a,int flag);
+void				sb(t_list *stack_b,int flag);
+void				ss(t_list *stack_a, t_list *stack_b,int flag);
+void				pa(t_list **stack_a, t_list **stack_b,int flag);
+void				pb(t_list **stack_a, t_list **stack_b,int flag);
+void				ra(t_list *stack_a,int flag);
+void				rb(t_list *stack_b,int flag);
+void				rr(t_list *stack_a, t_list *stack_b,int flag);
+void				rra(t_list *stack_a,int flag);
+void				rrb(t_list *stack_b,int flag);
+void				rrr(t_list *stack_a, t_list *stack_b,int flag);
 void				sort_two_numbers(t_list *stack_a);
 void				sort_three_numbers(t_list *stack_a);
 void				sort_five_numbers(t_list **stack_a, t_list **stack_b);
@@ -72,8 +83,8 @@ int					ft_lstsize(t_list *lst);
 void				print_stack(t_list *stack);
 int					*get_sorted_arry(t_list *stack);
 int					*stack_to_arr(t_list *stack, int len);
-t_info 				count_operators(t_list *stack, int max,int size);
+t_info				count_operators(t_list *stack, int max, int size);
 void				print_array(int *arr, int len);
 unsigned int		abs_(int num);
- void big_sort(t_list **stack_a,t_list **stack_b,int *arr);
+void				big_sort(t_list **stack_a, t_list **stack_b, int *arr);
 #endif

@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 12:15:11 by kel-baam          #+#    #+#             */
+/*   Updated: 2023/02/27 12:15:14 by kel-baam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
-int	convert_to_int(const char *str, int i)
-{
-	int	result;
 
+long long	convert_to_int(const char *str)
+{
+	long long	result;
+	int i;
+
+	i = 0;
 	result = 0;
 	while (str[i])
 	{
@@ -21,7 +35,8 @@ int	ft_atoi(char *str)
 {
 	int		i;
 	int		sign;
-	int		res;
+	long long		res;
+	int				len;
 
 	sign = 1;
 	i = 0;
@@ -34,6 +49,11 @@ int	ft_atoi(char *str)
 	}
 	else if (str[i] == '+')
 			i++;
-	res = convert_to_int(str, i);
-	return (res * sign);
+	len = ft_strlen(str+i);
+	if( !len || len > 10)
+		print_error();
+	res = convert_to_int(str + i) * sign;
+	if (res > INT32_MAX || res < INT32_MIN)
+		print_error();
+	return res;
 }

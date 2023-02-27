@@ -12,42 +12,68 @@
 
 #include "push_swap.h"
 
-void checker(char *buffer,t_list *stack_a, t_list *stack_b)
+void	apply_operator(char *buffer, t_list **stack_a, t_list **stack_b)
 {
-        if(!strcmp(buffer,"sa"))
-                sa(stack_a);
-        else if(!strcmp(buffer,"sb"))
-                sb(stack_b);
-        else if(strcmp(buffer,"ss"))
-                ss(stack_a,stack_b);
-        else if(strcmp(buffer,"pa"))
-                pa(&stack_a,&stack_b);
-        else if(strcmp(buffer,"pb"))
-                pb(&stack_a,&stack_b);
-        else if(strcmp(buffer,"ra"))
-                ra(stack_a);
-        else if(strcmp(buffer,"rb"))
-                rb(stack_b);
-        else if(strcmp(buffer,"rr"))
-                rr(stack_a,stack_b);
-        else if(strcmp(buffer,"rra"))
-                rra(stack_a);
-        else if(strcmp(buffer,"rrb"))
-                rrb(stack_b);
-        else if(strcmp(buffer,"rrr"))
-                rrr(stack_a,stack_b);
-
+	if (!strcmp(buffer, "sa\n"))
+		sa(*stack_a,0);
+	else if (!strcmp(buffer, "sb\n"))
+		sb(*stack_b,0);
+	else if (!strcmp(buffer, "ss\n"))
+		ss(*stack_a, *stack_b,0);
+	else if (!strcmp(buffer, "pa\n"))
+		pa(stack_a, stack_b,0);
+	else if (!strcmp(buffer, "pb\n"))
+		pb(stack_a, stack_b,0);
+	else if (!strcmp(buffer, "ra\n"))
+		ra(*stack_a,0);
+	else if (!strcmp(buffer, "rb\n"))
+		rb(*stack_b,0);
+	else if (!strcmp(buffer, "rr\n"))
+		rr(*stack_a, *stack_b,0);
+	else if (!strcmp(buffer, "rra\n"))
+		rra(*stack_a,0);
+	else if (!strcmp(buffer, "rrb\n"))
+		rrb(*stack_b,0);
+	else if (!strcmp(buffer, "rrr\n"))
+		rrr(*stack_a, *stack_b,0);
+	else
+		print_error();
 }
 
-char* read_from_stdin(t_list *stack_a,t_list *stack_b)
+void read_apply_operators(t_list **stack_a, t_list **stack_b)
 {
-        char *buffer=NULL;
-        buffer=get_next_line(1);
-        while(buffer)
-        {
-                checker(buffer,stack_a,stack_b);
-                free(buffer);
-                buffer=get_next_line(1);
-        }
-        return NULL;
+	char	*buffer;
+	int		sort;
+
+	buffer = NULL;
+	
+	while (1)
+	{
+		buffer = get_next_line(STDIN_FILENO);
+		if (!buffer)
+			break;
+		apply_operator(buffer, stack_a, stack_b);
+		free(buffer);
+	}
+}
+
+int	main(int ac, char **av)
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+
+	stack_b = NULL;
+	if (ac >= 2)
+	{
+		stack_a = init_stack_a(av);
+		read_apply_operators(&stack_a, &stack_b);
+		if (is_sort(stack_a) && !stack_b)
+			printf("ok\n");
+		else
+			printf("ko\n");
+	}
+	else
+		print_error();
+
+	return (0);
 }

@@ -1,26 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   outils.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 12:19:00 by kel-baam          #+#    #+#             */
+/*   Updated: 2023/02/27 12:19:04 by kel-baam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
-unsigned int	abs_(int num)
-{
-	if (num < 0)
-		num *= -1;
-	return (num);
-}
-void	find_min(t_list *stack, t_data *data)
-{
-	int	i;
-
-	i = 1;
-	while (stack)
-	{
-		if (stack->content < (*data).min)
-		{
-			(*data).min = stack->content;
-			(*data).pos = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-}
 
 int	*stack_to_arr(t_list *stack, int len)
 {
@@ -48,16 +37,14 @@ void	swap_arr(int *xp, int *yp)
 }
 
 // A function to implement bubble sort
-void	bubbleSort(int *arr, int n)
+void	bubblesort(int *arr, int n)
 {
-	int	i,j;
+	int	i;
+	int	j;
 
 	i = 0;
-	//for (i = 0; i < n - 1; i++)
 	while (i < n - 1)
 	{
-		// Last i elements are already in place
-		//for (j = 0; j < n - i - 1; j++)
 		j = 0;
 		while (j < n - i - 1)
 		{
@@ -71,7 +58,7 @@ void	bubbleSort(int *arr, int n)
 
 void	sort_array(int *arr, int len)
 {
-	bubbleSort(arr, len);
+	bubblesort(arr, len);
 }
 
 int	*get_sorted_arry(t_list *stack)
