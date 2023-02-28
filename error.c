@@ -23,20 +23,3 @@ unsigned int	abs_(int num)
 		num *= -1;
 	return (num);
 }
-
-void	find_min(t_list *stack, t_data *data)
-{
-	int	i;
-
-	i = 1;
-	while (stack)
-	{
-		if (stack->content < (*data).min)
-		{
-			(*data).min = stack->content;
-			(*data).pos = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-}

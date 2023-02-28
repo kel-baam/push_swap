@@ -34,7 +34,8 @@ t_list	*pop(t_list **stack)
 void	push(t_list **src_stack, t_list **dst_stack)
 {
 	t_list	*tmp;
-	if(src_stack && *src_stack && dst_stack)
+
+	if (src_stack && *src_stack && dst_stack)
 	{
 		tmp = pop((src_stack));
 		ft_lstadd_front(dst_stack, tmp);

@@ -11,34 +11,33 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	sa(t_list *stack_a,int flag)
+void	sa(t_list *stack_a, int flag)
 {
 	swap(stack_a);
-	if(flag==1)
+	if (flag == 1)
 		write(1, "sa\n", 3);
 }
 
-void	pa(t_list **stack_a, t_list **stack_b,int flag)
+void	pa(t_list **stack_a, t_list **stack_b, int flag)
 {
 	push(stack_b, stack_a);
-	if(flag==1)
+	if (flag == 1)
 		write(1, "pa\n", 3);
 }
 
-void	ra(t_list *stack_a,int flag)
+void	ra(t_list *stack_a, int flag)
 {
 	rotate(stack_a);
-	if(flag==1)
+	if (flag == 1)
 		write(1, "ra\n", 3);
 }
 
-void	rra(t_list *stack_a,int flag)
+void	rra(t_list *stack_a, int flag)
 {
 	reverse_rotate(stack_a);
-	if(flag==1)
+	if (flag == 1)
 		write(1, "rra\n", 4);
 }
-
 
 /*
 

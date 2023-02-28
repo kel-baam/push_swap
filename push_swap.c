@@ -22,7 +22,7 @@ void	my_sort(t_list **stack_a, t_list **stack_b, int size, int *arr)
 		else if (size == 5 || size == 4)
 			sort_five_numbers(stack_a, stack_b);
 		else
-			big_sort(stack_a, stack_b, arr);
+			big_sort(stack_a, stack_b, arr, size);
 	}
 }
 
@@ -30,20 +30,17 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		sort;
 	int		*arr;
+	int		len;
+	int		size;
 
+	len = 0;
 	stack_b = NULL;
 	if (ac >= 2)
 	{
-		stack_a = init_stack_a(av);
-		arr = get_sorted_arry(stack_a);
-		my_sort(&stack_a, &stack_b, ac - 1, arr);
-		sort = is_sort(stack_a);
-		if (sort)
-			printf("sorted!\n");
-		else
-			printf("not sorted!\n");
+		stack_a = init_stack_a(av, &len);
+		arr = get_sorted_arry(stack_a, len);
+		my_sort(&stack_a, &stack_b, len, arr);
 	}
 	return (0);
 }

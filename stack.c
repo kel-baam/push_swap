@@ -12,19 +12,29 @@
 
 #include "push_swap.h"
 
-t_list	*init_stack_a(char **args)
+t_list	*init_stack_a(char **args, int *len)
 {
 	t_list	*stack_a;
 	int		i;
 	int		my_data;
+	char	**numbers;
+	char	**tmp;
 
 	stack_a = NULL;
 	i = 1;
 	while (args[i])
 	{
-		// CHECK IS INT
-		my_data = ft_atoi(args[i]);
-		ft_lstadd_back(&(stack_a), ft_lstnew(my_data));
+		numbers = ft_split(args[i], ' ');
+		tmp = numbers;
+		while (tmp && *tmp)
+		{
+			my_data = ft_atoi(*tmp);
+			ft_lstadd_back(&(stack_a), ft_lstnew(my_data));
+			free(*tmp);
+			tmp++;
+			*len = *len + 1;
+		}
+		free(numbers);
 		i++;
 	}
 	return (stack_a);

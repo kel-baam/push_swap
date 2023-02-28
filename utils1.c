@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils.c                                           :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -61,12 +61,10 @@ void	sort_array(int *arr, int len)
 	bubblesort(arr, len);
 }
 
-int	*get_sorted_arry(t_list *stack)
+int	*get_sorted_arry(t_list *stack, int len)
 {
-	int	len;
 	int	*arr;
 
-	len = ft_lstsize(stack);
 	arr = stack_to_arr(stack, len);
 	sort_array(arr, len);
 	return (arr);

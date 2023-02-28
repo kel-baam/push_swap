@@ -14,7 +14,7 @@
 long long	convert_to_int(const char *str)
 {
 	long long	result;
-	int i;
+	int			i;
 
 	i = 0;
 	result = 0;
@@ -33,10 +33,10 @@ long long	convert_to_int(const char *str)
 
 int	ft_atoi(char *str)
 {
-	int		i;
-	int		sign;
-	long long		res;
-	int				len;
+	int			i;
+	int			sign;
+	long long	res;
+	int			len;
 
 	sign = 1;
 	i = 0;
@@ -48,12 +48,12 @@ int	ft_atoi(char *str)
 		sign = -1;
 	}
 	else if (str[i] == '+')
-			i++;
-	len = ft_strlen(str+i);
-	if( !len || len > 10)
+		i++;
+	len = ft_strlen(str + i);
+	if (!len || len > 10)
 		print_error();
 	res = convert_to_int(str + i) * sign;
 	if (res > INT32_MAX || res < INT32_MIN)
 		print_error();
-	return res;
+	return (res);
 }
