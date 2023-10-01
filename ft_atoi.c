@@ -6,10 +6,11 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:15:11 by kel-baam          #+#    #+#             */
-/*   Updated: 2023/02/27 12:15:14 by kel-baam         ###   ########.fr       */
+/*   Updated: 2023/10/01 12:47:57 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include <stdint.h>
 
 long long	convert_to_int(const char *str)
 {

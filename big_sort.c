@@ -6,7 +6,7 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 23:59:34 by kel-baam          #+#    #+#             */
-/*   Updated: 2023/02/27 23:59:40 by kel-baam         ###   ########.fr       */
+/*   Updated: 2023/10/01 12:49:01 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -14,11 +14,9 @@
 void	push_to_b(t_list **stack_a, t_list **stack_b, int *arr, int size)
 {
 	int	count_min;
-	int	flag;
 	int	pos;
 
 	count_min = 0;
-	flag = 0;
 	while (stack_b && (*stack_b))
 	{
 		if ((*stack_b)->content == arr[size - 1])
