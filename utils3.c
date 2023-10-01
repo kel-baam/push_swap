@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-t_info	count_cheapest_pos(t_list *stack, int size, t_data data)
+t_info	count_cheapest_pos(int size, t_data data)
 {
 	t_info	info;
 
@@ -65,7 +65,7 @@ t_info	count_operators(t_list *stack, int max, int size)
 		pos++;
 		stack = stack->next;
 	}
-	return (count_cheapest_pos(stack, size, data));
+	return (count_cheapest_pos(size, data));
 }
 
 void	apply_ops(t_list *stack, t_info info)

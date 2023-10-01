@@ -28,7 +28,7 @@ t_list	*pop(t_list **stack)
 		tmp->next = NULL;
 		return (tmp);
 	}
-	return (tmp);
+	return (NULL);
 }
 
 void	push(t_list **src_stack, t_list **dst_stack)

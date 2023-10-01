@@ -83,7 +83,6 @@ void				rrr(t_list *stack_a, t_list *stack_b, int flag);
 void				sort_two_numbers(t_list *stack_a);
 void				sort_three_numbers(t_list *stack_a);
 void				sort_five_numbers(t_list **stack_a, t_list **stack_b);
-void				dummy_sort(t_list **stack_a, t_list **stack_b, int pos);
 void				find_min(t_list *stack, t_data *data);
 int					ft_lstsize(t_list *lst);
 void				print_stack(t_list *stack);

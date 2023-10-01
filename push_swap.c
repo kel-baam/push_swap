@@ -32,7 +32,6 @@ int	main(int ac, char **av)
 	t_list	*stack_b;
 	int		*arr;
 	int		len;
-	int		size;
 
 	len = 0;
 	stack_b = NULL;

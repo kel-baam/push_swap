@@ -43,7 +43,6 @@ void	apply_operator(char *buffer, t_list **stack_a, t_list **stack_b)
 void	read_apply_operators(t_list **stack_a, t_list **stack_b)
 {
 	char	*buffer;
-	int		sort;
 
 	buffer = NULL;
 	while (1)
@@ -60,16 +59,17 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	int		len;
 
 	stack_b = NULL;
 	if (ac >= 2)
 	{
-		stack_a = init_stack_a(av);
+		stack_a = init_stack_a(av, &len);
 		read_apply_operators(&stack_a, &stack_b);
 		if (is_sort(stack_a) && !stack_b)
-			printf("ok\n");
+			write(1, "OK\n", 3);
 		else
-			printf("ko\n");
+			write(1, "KO\n", 3);
 	}
 	return (0);
 }

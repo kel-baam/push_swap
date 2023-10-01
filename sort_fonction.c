@@ -74,6 +74,7 @@ void	sort_five_numbers(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(*stack_a);
 	while (i < 2)
 	{
+		find_min(*stack_a, &data);
 		move_small_to_b(stack_a, stack_b, data, size);
 		i++;
 	}
